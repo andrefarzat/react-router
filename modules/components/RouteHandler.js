@@ -18,11 +18,13 @@ class RouteHandler extends React.Component {
   }
 
   componentDidMount() {
-    this._updateRouteComponent(this.refs[REF_NAME]);
+    var component = document.getElementById(REF_NAME);
+    this._updateRouteComponent(component);
   }
 
   componentDidUpdate() {
-    this._updateRouteComponent(this.refs[REF_NAME]);
+    var component = document.getElementById(REF_NAME);
+    this._updateRouteComponent(component);
   }
 
   componentWillUnmount() {
@@ -44,7 +46,7 @@ class RouteHandler extends React.Component {
       return null;
 
     var childProps = assign({}, props || this.props, {
-      ref: REF_NAME,
+      id: REF_NAME,
       params: this.context.router.getCurrentParams(),
       query: this.context.router.getCurrentQuery()
     });
